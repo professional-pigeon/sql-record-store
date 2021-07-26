@@ -7,13 +7,13 @@
   <label for="name">Rename song</label>
   <input id="name" name="name" type="text">
 
-  <button type="submit">Update song</button>
+  <button type="submit"class="btn btn-primary">Update song</button>
 </form>
 
 <form action="/albums/<%= @song.album.id %>/songs/<%= @song.id %>" method="post">
   <input name="_method" type="hidden" value="delete">
 
-  <button type="submit">Delete song</button>
+  <button type="submit"class="btn btn-primary">Delete song</button>
 </form>
 
 <a href="/albums/<%= @song.album.id %>">Back to <%= @song.album.name %></a>

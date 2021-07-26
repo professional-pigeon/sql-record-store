@@ -1,0 +1,23 @@
+body {
+  background:#303030;
+}
+
+.container {
+  background-color: rgba(255,255,255,.85);
+  padding: 1rem;
+  margin:1rem auto;
+}
+
+ol, blockquote {
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.return {
+  background-color: #303030;
+  padding:.5rem;
+  margin-bottom:1rem;
+}
+
+.return a {
+  color:#eee;
+}
