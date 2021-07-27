@@ -57,3 +57,4 @@ class Album
     Song.find_by_album(self.id)
   end
 end
+

@@ -1,0 +1,19 @@
+<h1>All Sales Vinyl</h1>
+<h3>Check out these lukewarm artists</h3>
+
+<% if @artists.any? %>
+  <div class="row">
+    <% @artists.each do |artist| %>
+      <div class="col-sm-3 g-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><a href="/artist/<%= artist.id %>"><%= artist.name %></a></h5>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>There are no artists! All work is beyond individuals.</p>
+<% end %>
+<a class="btn btn-primary mt-3" href="/albums/new">Add a new artist</a>
