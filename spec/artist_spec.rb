@@ -13,7 +13,7 @@ describe '#Artist' do
       album = Album.new({:name => "A Love Supreme", :id => nil})
       album.save()
       artist.update({:album_name => "A Love Supreme"})
-      expect(artist.albums).to(eq([album]))
+      expect(artist.albums).to(eq([album], ))
     end
   end
 end

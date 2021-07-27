@@ -18,6 +18,7 @@ get("/albums") do
   @albums.sort_by! {|album| album.name.downcase}
   erb(:albums)
 end
+# artist = album.artists and then artist[0].name and artist[0].id
 
 get("/albums/new") do
   erb(:new_album)
@@ -115,7 +116,11 @@ get('/artists') do
   erb(:artists)
 end
 
-get('artists/edit') do
+get('/artists/:id') do
+  erb(:artist)
+end
+
+get('/artists/edit') do
     @artist = find(params[:id].to_i())
   if @artist
     erb(:edit_artist)

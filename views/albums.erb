@@ -34,6 +34,8 @@
           <div class="card-body">
             <h5 class="card-title"><a href="/albums/<%= album.id %>"><%= album.name %></a></h5>
             <h6 class="card-subtitle mb-2 text-muted">Release Year: <%= album.release_year %></h6>
+            <% artist = album.artists %>
+            <h6 class="card-subtitle mb-2 text-muted"><a href="/artists/<%= artist[0].id %>"><%= artist[0].name %></a></h5>
           </div>
         </div>
       </div>
