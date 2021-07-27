@@ -18,8 +18,13 @@ GEM
     multi_json (1.15.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    nokogiri (1.11.7-arm64-darwin)
+      racc (~> 1.4)
     nokogiri (1.11.7-x64-mingw32)
       racc (~> 1.4)
+    nokogiri (1.11.7-x86_64-darwin)
+      racc (~> 1.4)
+    pg (1.2.3)
     pg (1.2.3-x64-mingw32)
     pry (0.14.1)
       coderay (~> 1.1)
@@ -62,6 +67,7 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
+  universal-darwin-20
   x64-mingw32
 
 DEPENDENCIES

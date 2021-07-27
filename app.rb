@@ -6,7 +6,7 @@ require("pry")
 require("pg")
 also_reload("lib/**/*.rb")
 
-DB = PG.connect({ :dbname => "record_store", :password => "epicodus" })
+DB = PG.connect({ :dbname => "record_store"})
 
 get("/") do
   redirect to("/albums")
@@ -14,7 +14,7 @@ end
 
 get("/albums") do
   @albums = Album.all
-  @albums.sort_by! {|album| album.name}
+  @albums.sort_by! {|album| album.name.downcase}
   erb(:albums)
 end
 

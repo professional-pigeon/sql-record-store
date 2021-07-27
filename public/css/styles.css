@@ -1,5 +1,9 @@
 body {
-  background:#303030;
+  background: linear-gradient(144deg, pink, cyan);
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position-y: bottom;
+  min-height: 100vh;
 }
 
 .container {
@@ -11,12 +15,12 @@ body {
 ol, blockquote {
   font-family:Georgia, 'Times New Roman', Times, serif;
 }
-
+/* 
 .return {
   background-color: #303030;
   padding:.5rem;
   margin-bottom:1rem;
-}
+} */
 
 .return a {
   color:#eee;
