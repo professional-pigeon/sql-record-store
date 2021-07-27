@@ -18,7 +18,6 @@ get("/albums") do
   @albums.sort_by! {|album| album.name.downcase}
   erb(:albums)
 end
-# artist = album.artists and then artist[0].name and artist[0].id
 
 get("/albums/new") do
   erb(:new_album)
@@ -36,6 +35,11 @@ post("/albums") do
     artist1.update({:album_name => params[:album_name]})
   end
   redirect to("/albums")
+end
+
+get("/albums/search") do
+  @album_search = Album.search(params[:search_term])
+  erb(:search_album)
 end
 
 get("/albums/:id") do
@@ -117,16 +121,20 @@ get('/artists') do
 end
 
 get('/artists/:id') do
+  @artist = Artist.find(params[:id].to_i)
+  @albums = @artist.albums
   erb(:artist)
 end
 
-get('/artists/edit') do
-    @artist = find(params[:id].to_i())
-  if @artist
-    erb(:edit_artist)
-  else
-    redirect to("/")
-  end
+get('/artists/:id/edit') do
+  @artist = Artist.find(params[:id].to_i())
+  erb(:edit_artist)
+end
+
+patch("/artists/:id") do
+  @artist = Artist.find(params[:id].to_i())
+  @artist.update({:name => params[:name]})
+  redirect to("/artists")
 end
 
 

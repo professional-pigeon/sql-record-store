@@ -1,0 +1,11 @@
+<h2>Search Results for SEARCH</h2>
+
+<% if @album_search.any? %>
+    <ul>
+      <% @album_search.each do |album| %>
+        <li><a href="/albums/<%= album.id %>"><%= album.name %></a></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>There are no albums for this search.</p>
+  <% end %>

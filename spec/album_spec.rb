@@ -77,4 +77,15 @@ describe '#Album' do
       expect(@album.songs).to(eq([song, song2]))
     end
   end
+
+  describe('#search') do
+    it("returns albums based on the search keyword") do
+      album3 = Album.new({:name => "Everready", :id => nil, :release_year => 2008})
+      album3.save()
+      album4 = Album.new({:name => "A Love Supreme", :id => nil, :release_year => 2008})
+      album4.save()
+      testvar = Album.search("Everready")
+      expect(testvar).to(eq(album3))
+    end
+  end
 end

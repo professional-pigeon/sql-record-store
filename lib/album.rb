@@ -57,6 +57,18 @@ class Album
     Song.find_by_album(self.id)
   end
 
+  def self.search(name)
+    album = DB.exec("SELECT * FROM albums WHERE name = '#{name}';").first
+    new_album = []
+    if album
+      name = album.fetch("name")
+      id = album.fetch("id").to_i
+      release_year = album.fetch("release_year").to_i
+      new_album.push(Album.new({ :name => name, :id => id, :release_year => release_year}))
+    end
+    new_album
+  end
+
   def artists
     artists = []
     results = DB.exec("SELECT artist_id FROM albums_artists WHERE album_id = #{@id};")

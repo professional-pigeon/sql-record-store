@@ -1,9 +1,9 @@
 <h1>All Sales Vinyl</h1>
 <h3>Available Records</h3>
-<form action="/albums">
+<form action="/albums/search" method="get">
   <div class="form-group">
-    <label for="search">Search</label>
-    <input id="search" name="search" class="form-control" type="text">
+    <label for="search_term">Search</label>
+    <input id="s" name="search_term" class="form-control" type="text">
   </div>
   <button type="submit" class="btn btn-primary mb-3 mt-3">Search</button>
 </form>
@@ -35,7 +35,7 @@
             <h5 class="card-title"><a href="/albums/<%= album.id %>"><%= album.name %></a></h5>
             <h6 class="card-subtitle mb-2 text-muted">Release Year: <%= album.release_year %></h6>
             <% artist = album.artists %>
-            <h6 class="card-subtitle mb-2 text-muted"><a href="/artists/<%= artist[0].id %>"><%= artist[0].name %></a></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><a href="/artists/<%= artist[0].id %>"><%= artist[0].name %></a></h6>
           </div>
         </div>
       </div>
