@@ -41,6 +41,17 @@ class Artist
     end
   end
 
+  def self.find_by_name(name)
+    artist = DB.exec("SELECT * FROM artists WHERE name = '#{name}';").first
+    if artist
+      name = artist.fetch("name")
+      id = artist.fetch("id").to_i
+      Artist.new({ :name => name, :id => id})
+    else
+      false
+    end
+  end
+
   def update(attributes)
     if (attributes.has_key?(:name)) && (attributes.fetch(:name) != nil)
       @name = attributes.fetch(:name)

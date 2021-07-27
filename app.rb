@@ -26,6 +26,14 @@ end
 post("/albums") do
   album = Album.new({:name => params[:album_name], :id => nil, :release_year => params[:release_year]})
   album.save()
+  artist = Artist.find_by_name(params[:artist_name]) #check to see if the artist already exists
+  if artist
+    artist.update({:album_name => params[:album_name]})
+  else
+    artist1 = Artist.new(:name => params[:artist_name], :id => nil) #if the artist doesn't exist this is new
+    artist1.save
+    artist1.update({:album_name => params[:album_name]})
+  end
   redirect to("/albums")
 end
 
