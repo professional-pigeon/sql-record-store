@@ -42,7 +42,7 @@ class Artist
   end
 
   def self.find_by_name(name)
-    artist = DB.exec("SELECT * FROM artists WHERE lower (name) = '#{name.downcase}';").first
+    artist = DB.exec("SELECT * FROM artists WHERE name = '#{name}';").first
     if artist
       name = artist.fetch("name")
       id = artist.fetch("id").to_i
