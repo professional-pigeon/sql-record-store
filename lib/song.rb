@@ -3,9 +3,7 @@ class Song
   attr_accessor :name, :album_id
 
   def initialize(attributes)
-    @name = attributes.fetch(:name)
-    @album_id = attributes.fetch(:album_id)
-    @id = attributes.fetch(:id)
+    attributes.each {|pair| instance_variable_set("@#{pair[0].to_s}", pair[1])}
   end
 
   def ==(song_to_compare)
@@ -23,7 +21,7 @@ class Song
       name = song.fetch("name")
       album_id = song.fetch("album_id").to_i
       id = song.fetch("id").to_i
-      songs.push(Song.new({:name => name, :album_id => album_id, :id => id}))
+      songs.push(Song.new({ :name => name, :album_id => album_id, :id => id }))
     end
     songs
   end
@@ -39,7 +37,7 @@ class Song
       name = song.fetch("name")
       album_id = song.fetch("album_id").to_i
       id = song.fetch("id").to_i
-      Song.new({:name => name, :album_id => album_id, :id => id})
+      Song.new({ :name => name, :album_id => album_id, :id => id })
     else
       nil
     end
@@ -65,7 +63,7 @@ class Song
     returned_songs.each() do |song|
       name = song.fetch("name")
       id = song.fetch("id").to_i
-      songs.push(Song.new({:name => name, :album_id => alb_id, :id => id}))
+      songs.push(Song.new({ :name => name, :album_id => alb_id, :id => id }))
     end
     songs
   end

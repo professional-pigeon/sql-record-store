@@ -1,23 +1,45 @@
 <h1>All Sales Vinyl</h1>
-
 <h3>Available Records</h3>
-
 <form action="/albums">
   <div class="form-group">
     <label for="search">Search</label>
     <input id="search" name="search" class="form-control" type="text">
   </div>
-  <button type="submit" class="btn btn-primary">Search</button>
+  <button type="submit" class="btn btn-primary mb-3 mt-3">Search</button>
 </form>
-
 <% if @albums.any? %>
-  <ul>
+  <div class="row">
+    <div class="col-md-6">
+    <%# <a href="/albums/sort?release_year">Sort by Release Year</a> %>
+      <form action="/albums/sort">
+        <div class="row">
+          <div class="col">
+            <select name="sort_method" class="form-control">
+              <option value="id">Sort by ID</option>
+              <option value="name">Sort by Name</option>
+              <option value="release_year">Sort by Release Year</option>
+            </select>
+          </div>
+          <div class="col">
+            <button type="submit" class="btn btn-primary">Sort!</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
     <% @albums.each do |album| %>
-      <li><a href="/albums/<%= album.id %>"><%= album.name %></a></li>
+      <div class="col-sm-3 g-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><a href="/albums/<%= album.id %>"><%= album.name %></a></h5>
+            <h6 class="card-subtitle mb-2 text-muted">Release Year: <%= album.release_year %></h6>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </ul>
+  </div>
 <% else %>
   <p>There are currently no records to display.</p>
 <% end %>
-
-<a href="/albums/new">Add a new album</a>
+<a class="btn btn-primary mt-3" href="/albums/new">Add a new album</a>

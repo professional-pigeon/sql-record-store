@@ -1,9 +1,0 @@
-development:
-  adapter: postgresql
-  database: db/development
-  username: whain
-  password: epicodus 
-  host: localhost
-  encoding: UTF8
-  pool: 5
-  timeout: 5000

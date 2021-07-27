@@ -2,7 +2,11 @@
 <form action="/albums" method="post">
   <div class="form-group">
     <label for="album_name">Album name</label>
-    <input id="n" name="album_name" class="form-control" type="text">
+    <input reqiured id="n" name="album_name" class="form-control" type="text">
   </div>
-  <button type="submit"class="btn btn-primary"> Add album</button>
+  <div class="form-group">
+    <label for="release_year">Release Year</label>
+    <input id="n" name="release_year" class="form-control" type="number">
+  </div>
+  <button type="submit"class="btn btn-primary">Add album</button>
 </form>

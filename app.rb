@@ -23,8 +23,7 @@ get("/albums/new") do
 end
 
 post("/albums") do
-  name = params[:album_name]
-  album = Album.new({:name => name, :id => nil })
+  album = Album.new({:name => params[:album_name], :id => nil, :release_year => params[:release_year]})
   album.save()
   redirect to("/albums")
 end
@@ -88,3 +87,17 @@ delete ("/albums/:id/songs/:song_id") do
   @album = Album.find(params[:id].to_i())
   erb(:album)
 end
+
+get ("/albums/sort/:sort_method") do
+  @albums = Album.all
+  case params[:sort_method]
+  when "id"
+    @albums.sort_by! {|album| album.id}
+  when "release_year"
+    @albums.sort_by! {|album| album.release_year}
+  else
+    @albums.sort_by! {|album| album.name}
+  end
+  redirect to ("/")
+end
+
